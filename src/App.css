@@ -112,18 +112,38 @@ h1{
   box-shadow: 0px 2px 4px rgb(39, 38, 38);
 }
 
+.todo-list-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 700px;
+}
+
+.todo-list-buttons{
+  display: flex;
+}
+
 .todo-list-item h3{
   font-size: 25px;
   color: rgb(0, 230, 122);
   font-weight: bold;
   margin: 0px;
+  white-space: normal;
+  hyphens: auto;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .todo-list-item p{
   margin-top: 8px;
   font-size: 14px;
   color: rgb(179, 178, 178);
-
+  white-space: normal;
+  hyphens: auto;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon{

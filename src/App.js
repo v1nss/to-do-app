@@ -45,14 +45,14 @@ function App () {
     }
   }, []);
 
-  const handleToDoEdit = index => {
+  const handleToDoEdit = (index) => {
     let editedToDoObj = {
       title: newEditedTodoTitle,
       description: newEditedDescription,
     };
     let editedToDos = [...allTodos];
     console.log(editedToDos);
-    editedToDos[index] = JSON.stringify (editedToDoObj);
+    editedToDos[index] = editedToDoObj;
     console.log(editedToDos);
     setAllTodos(editedToDos);
     localStorage.setItem ('todolist', JSON.stringify (editedToDos));
@@ -160,7 +160,7 @@ function App () {
             allTodos.map((item, index) => (
               <div className="todo-list-item" key={index}>
                 {editingTodoIndex === index ? (
-                  <div key={index}>
+                  <div className='todo-edit' key={index}>
                     <div className="todo-input-item-edit">
                       <input
                         type="text"
@@ -198,12 +198,12 @@ function App () {
                     </button>
                   </div>
                 ) : (
-                  <div>
+                  <div className="todo-list-container">
                     <div>
                       <h3>{item.title}</h3>
                       <p>{item.description}</p>
                     </div>
-                    <div>
+                    <div className='todo-list-buttons'>
                       <FiEdit2
                         title="Edit?"
                         className="icon"
