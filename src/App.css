@@ -19,7 +19,7 @@ h1{
   max-height: 80vh;
   overflow-y: auto;
   box-shadow: 0px 5px 7px rgb(26, 25, 25);
- 
+  border-radius: 10px;
   
 }
 
@@ -127,7 +127,8 @@ h1{
 }
 
 .icon{
-  font-size: 35px;
+  font-size: 25px;
+  margin: 2px;
   cursor: pointer;
 }
 
@@ -137,11 +138,10 @@ h1{
 }
 
 .check-icon{
-  font-size: 22px;
+  font-size: 25px;
   cursor: pointer;
   color: rgb(0, 230, 122);
-  margin-left: 10px;
-  margin-bottom: 5px;
+  margin: 2px;
 }
 
 .check-icon:hover{
