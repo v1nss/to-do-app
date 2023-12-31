@@ -87,7 +87,7 @@ h1{
 
 .todo-input-item input:focus{
   outline: 2px solid #4cc9f0;
-  background-color:rgb(77, 77, 77);
+  background-color:rgb(255, 255, 255);
 }
 
 
@@ -226,9 +226,6 @@ h1{
   margin: 10px;
 }
 
-.todo-input-item-edit{
-  
-}
 
 .todo-input-title-edit input{
   border: none;
