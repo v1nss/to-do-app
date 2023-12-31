@@ -255,7 +255,7 @@ function App () {
               </div>
               <div>
                 <FiTrash
-                  className="icon"
+                  className="icon-delete"
                   onClick={() => handleCompletedTodoDelete(index)}
                 />
               </div>
