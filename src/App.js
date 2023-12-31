@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 // import videoFile from './assets/hny.mp4';
-import {AiOutlineDelete} from 'react-icons/ai';
-import {BsCheckLg} from 'react-icons/bs';
 
 import { FiTrash } from "react-icons/fi";
 import { FiCheck } from "react-icons/fi";
@@ -24,12 +22,16 @@ function App () {
       title: newTodoTitle,
       description: newDescription,
     };
-    let updatedTodoArr = [...allTodos];
-    updatedTodoArr.push (newToDoObj);
-    setAllTodos (updatedTodoArr);
-    localStorage.setItem ('todolist', JSON.stringify (updatedTodoArr));
-    setNewDescription ('');
-    setNewTodoTitle ('');
+    if (newTodoTitle.trim() !== '') {
+      let updatedTodoArr = [...allTodos];
+      updatedTodoArr.push (newToDoObj);
+      setAllTodos (updatedTodoArr);
+      localStorage.setItem ('todolist', JSON.stringify (updatedTodoArr));
+      setNewDescription ('');
+      setNewTodoTitle ('');
+    } else {
+      alert('Title cannot be empty. Please enter a title.');
+    }
   };
 
   useEffect (() => {
@@ -51,12 +53,16 @@ function App () {
       title: newEditedTodoTitle,
       description: newEditedDescription,
     };
-    let editedToDos = [...allTodos];
-    editedToDos[index] = editedToDoObj;
-    setAllTodos(editedToDos);
-    localStorage.setItem ('todolist', JSON.stringify (editedToDos));
-    setNewEditedTodoTitle('');
-    setNewEditedDescription('');
+    if (newEditedTodoTitle.trim() !== ''){
+      let editedToDos = [...allTodos];
+      editedToDos[index] = editedToDoObj;
+      setAllTodos(editedToDos);
+      localStorage.setItem ('todolist', JSON.stringify (editedToDos));
+      setNewEditedTodoTitle('');
+      setNewEditedDescription('');
+    } else {
+      alert('Title cannot be empty. Please enter a title.');
+    }
   };
 
   const handleToDoDelete = index => {
@@ -68,8 +74,7 @@ function App () {
 
   const handleCompletedTodoDelete = index => {
     let reducedCompletedTodos = [...completedTodos];
-    reducedCompletedTodos.splice (index);
-    // console.log (reducedCompletedTodos);
+    reducedCompletedTodos.splice (index,1);
     localStorage.setItem (
       'completedTodos',
       JSON.stringify (reducedCompletedTodos)
@@ -107,12 +112,13 @@ function App () {
   return (
     
     <div className="App">
-      <h1>My Todos</h1>
+      
       {/* <h1>HAPPY NEW YEARRR</h1>
       <video autoPlay loop id="myVideo" width="100%" height="auto">
         <source src={videoFile} type="video/mp4" />
       </video> */}
       <div className="todo-wrapper">
+      <h1>My Todos</h1>
         <div className="todo-input">
           <div className="todo-input-item">
             <label>Title:</label>
@@ -211,6 +217,11 @@ function App () {
                       <p>{item.description}</p>
                     </div>
                     <div className='todo-list-buttons'>
+                      <FiTrash
+                        title="Delete?"
+                        className="icon-delete"
+                        onClick={() => handleToDoDelete(index)}
+                      />
                       <FiEdit2
                         title="Edit?"
                         className="icon"
@@ -219,11 +230,7 @@ function App () {
                           setEditingTodoIndex(index);
                         }}
                       />
-                      <FiTrash
-                        title="Delete?"
-                        className="icon"
-                        onClick={() => handleToDoDelete(index)}
-                      />
+
                       <FiCheck
                         title="Completed?"
                         className="check-icon"
@@ -247,7 +254,7 @@ function App () {
                 </p>
               </div>
               <div>
-                <AiOutlineDelete
+                <FiTrash
                   className="icon"
                   onClick={() => handleCompletedTodoDelete(index)}
                 />
