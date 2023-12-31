@@ -1,16 +1,37 @@
 body{
-  background-color: #1f1e1e;
+  /* background-color: #1f1e1e; */
+  /* background-image: url("./assets/bg1.png"); */
+  background-image: url("./assets/bg2.jpg");
   color: white;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1{
   text-align: center;
+  color: white;
+  font-size: 400;
+}
+#myVideo {
+  
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-
 .todo-wrapper{
-  background-color: #353434;
+  /* background-color: #353434; */
+
+  background: rgba(44, 44, 44, 0.43);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.9px);
+-webkit-backdrop-filter: blur(8.9px);
+border: 1px solid rgba(44, 44, 44, 0.13);
+  
   padding: 2%;
   width: fit-content;
   margin-left: auto;
@@ -18,8 +39,8 @@ h1{
   margin-top: 3%;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0px 5px 7px rgb(26, 25, 25);
-  border-radius: 10px;
+  /* box-shadow: 0px 5px 7px rgb(26, 25, 25);
+  border-radius: 10px; */
   
 }
 
@@ -116,7 +137,7 @@ h1{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 700px;
+  width: 615px;
 }
 
 .todo-list-buttons{
@@ -154,7 +175,6 @@ h1{
 
 .icon:hover{
   color: red;
-
 }
 
 .check-icon{
@@ -166,4 +186,68 @@ h1{
 
 .check-icon:hover{
   color: rgb(4, 192, 104);
+}
+
+.todo-edit{
+  display: flex;
+  margin: 10px;
+}
+
+.todo-input-item-edit{
+  
+}
+
+.todo-input-title-edit input{
+  border: none;
+  padding: 4px;
+  margin-bottom: 4px;
+  width: 250px;
+}
+
+.todo-input-description-edit input{
+  border: none;
+  padding: 4px;
+  width: 250px;
+}
+
+.edit-button{
+  display: flex;
+  padding-left: 55%;
+  gap: 5px;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.cancel-edit-button{
+  color: white;
+  width: 60px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.cancel-edit-button:hover{
+  display: inline-block;
+  color: #1f1e1e;
+}
+
+.save-edit-button{
+  font-weight: bold;
+  width: 60px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  /* transition:ease-in-out; */
+}
+
+.save-edit-button:hover{
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.24),0 5px 10px 0 rgba(0,0,0,0.19);
+  /* transition: 2ms ease; */
+  /* transition:ease-in-out; */
+  color: #00e67a;
+  background: #fff;
 }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
+// import videoFile from './assets/hny.mp4';
 import {AiOutlineDelete} from 'react-icons/ai';
 import {BsCheckLg} from 'react-icons/bs';
 
@@ -51,9 +52,7 @@ function App () {
       description: newEditedDescription,
     };
     let editedToDos = [...allTodos];
-    console.log(editedToDos);
     editedToDos[index] = editedToDoObj;
-    console.log(editedToDos);
     setAllTodos(editedToDos);
     localStorage.setItem ('todolist', JSON.stringify (editedToDos));
     setNewEditedTodoTitle('');
@@ -106,9 +105,13 @@ function App () {
   };
 
   return (
+    
     <div className="App">
       <h1>My Todos</h1>
-  
+      {/* <h1>HAPPY NEW YEARRR</h1>
+      <video autoPlay loop id="myVideo" width="100%" height="auto">
+        <source src={videoFile} type="video/mp4" />
+      </video> */}
       <div className="todo-wrapper">
         <div className="todo-input">
           <div className="todo-input-item">
@@ -162,40 +165,44 @@ function App () {
                 {editingTodoIndex === index ? (
                   <div className='todo-edit' key={index}>
                     <div className="todo-input-item-edit">
-                      <input
-                        type="text"
-                        value={newEditedTodoTitle}
-                        onChange={(e) => setNewEditedTodoTitle(e.target.value)}
-                        placeholder="Title:"
-                      />
+                      <div className="todo-input-title-edit">
+                        <input
+                          type="text"
+                          value={newEditedTodoTitle}
+                          onChange={(e) => setNewEditedTodoTitle(e.target.value)}
+                          placeholder="Title"
+                        />
+                      </div>
+                      <div className="todo-input-description-edit">
+                        <input
+                          type="text"
+                          value={newEditedDescription}
+                          onChange={(e) => setNewEditedDescription(e.target.value)}
+                          placeholder="Description"
+                        />
+                      </div>
                     </div>
-                    <div className="todo-input-item-edit">
-                      <input
-                        type="text"
-                        value={newEditedDescription}
-                        onChange={(e) => setNewEditedDescription(e.target.value)}
-                        placeholder="Description:"
-                      />
+                    <div className='edit-button'>
+                      <button
+                        className="cancel-edit-button"
+                        onClick={() => {
+                          setIsEditingTodo(false);
+                          setEditingTodoIndex(null);
+                        }}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="save-edit-button"
+                        onClick={() => {
+                          handleToDoEdit(index);
+                          setIsEditingTodo(false);
+                          setEditingTodoIndex(null);
+                        }}
+                      >
+                        Save
+                      </button>
                     </div>
-                    <button
-                      className="active"
-                      onClick={() => {
-                        setIsEditingTodo(false);
-                        setEditingTodoIndex(null);
-                      }}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      className="active"
-                      onClick={() => {
-                        handleToDoEdit(index);
-                        setIsEditingTodo(false);
-                        setEditingTodoIndex(null);
-                      }}
-                    >
-                      Save
-                    </button>
                   </div>
                 ) : (
                   <div className="todo-list-container">
