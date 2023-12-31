@@ -12,7 +12,7 @@ function App () {
   const [newDescription, setNewDescription] = useState ('');
   const [completedTodos, setCompletedTodos] = useState ([]);
   const [isCompletedScreen, setIsCompletedScreen] = useState (false);
-  const [isEditingToDo, setIsEditingTodo] = useState (false);
+  const [setIsEditingTodo] = useState (false);
   const [newEditedTodoTitle, setNewEditedTodoTitle] = useState ('');
   const [newEditedDescription, setNewEditedDescription] = useState ('');
   const [editingTodoIndex, setEditingTodoIndex] = useState(null);
