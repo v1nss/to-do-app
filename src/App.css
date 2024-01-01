@@ -7,7 +7,7 @@ body{
   color: white;
   overflow: hidden;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:autoq                                                                                                                                                                                 ;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -233,7 +233,7 @@ h1{
   margin-bottom: 4px;
   width: 250px;
   border-radius: 5px;
-  background-color:rgb(134, 134, 134);
+  background-color:rgb(222, 222, 222);
   transition-duration: 0.4s;
 }
 
@@ -247,7 +247,7 @@ h1{
   padding: 8px;
   width: 250px;
   border-radius: 5px;
-  background-color:rgb(134, 134, 134);
+  background-color:rgb(222, 222, 222);
   transition-duration: 0.4s;
 }
 
